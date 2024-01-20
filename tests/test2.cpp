@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 #include "irc.hpp"
 
-TEST(MainProgramTest, OutputsHelloWorld) {
+TEST(HelloTest, OutputsHelloWorld) {
     // Sauvegarder l'ancien buffer
     std::streambuf* oldCoutStreamBuf = std::cout.rdbuf();
 
@@ -10,7 +10,7 @@ TEST(MainProgramTest, OutputsHelloWorld) {
     std::cout.rdbuf(strCout.rdbuf());
 
     // Appeler la fonction qui imprime sur la sortie standard
-    mainProgram();
+    hello();
 
     // Restaurer l'ancien buffer
     std::cout.rdbuf(oldCoutStreamBuf);
