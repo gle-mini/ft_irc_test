@@ -1,4 +1,5 @@
 #include "gtest/gtest.h"
+#include "irc.hpp"
 
 TEST(HelloTest, OutputsHelloWorld) {
     // Sauvegarder l'ancien buffer
