@@ -17,6 +17,7 @@ NAME = unit_tests
 #######################################
 OBJ_DIR     =   obj
 SRC_DIR		=	tests
+PRIV_DIR	=	../private/
 GTEST_DIR   =   googletest
 GTEST_BUILD_DIR = ${GTEST_DIR}/build
 GTEST_LIB_DIR = ${GTEST_BUILD_DIR}/lib/
@@ -49,6 +50,7 @@ CXXFLAGS    +=	-MMD -MP
 CXXFLAGS    +=	-Wshadow
 CXXFLAGS 	+=	-std=c++14
 CXXFLAGS	+=	-I${GTEST_INC_DIR}
+CXXFLAGS	+=	-I${PRIV_DIR}
 
 LFLAGS 		+=	-lpthread
 
@@ -67,24 +69,24 @@ TEST_DEP = ${OBJ:.o=.d}
 
 #####################################
 #           	RULES        		#
-##################################### 
+#####################################
+all: ${NAME}
+
 ${NAME}: ${OBJ} ${GTEST_A} ${IRC_A}
 	${LINK} $^ ${LFLAGS} ${OUTPUT_OPTION}
 
-all: ${NAME}
-
 -include ${TEST_DEP}
 
-${OBJ_DIR}/%.o: ${SRC_DIR}/%.cpp
+${OBJ_DIR}/%.o: ${SRC_DIR}/%.cpp ${GTEST_A} ${IRC_A}
 	@${MKDIR} ${@D}
 	${CXX} $< ${CXXFLAGS} ${OUTPUT_OPTION}
+
+${IRC_A} :
+	${MAKE} -C ${@D} ${@F}
 
 ${GTEST_A}:
 	${CMAKE} -B ${GTEST_BUILD_DIR} ${GTEST_DIR}
 	${MAKE} -C ${GTEST_BUILD_DIR}
-
-${IRC_A} :
-	${MAKE} -C ${@D} ${@F}
 
 clean:
 	${RM} ${NAME} ${IRC_A} vgcore.*
