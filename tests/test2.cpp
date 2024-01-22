@@ -16,5 +16,5 @@ TEST(HelloTest, OutputsHelloWorld) {
     std::cout.rdbuf(oldCoutStreamBuf);
 
     // Vérifier la sortie capturée
-    EXPECT_EQ(strCout.str(), "hello world\n");
+    EXPECT_EQ(strCout.str(), "hello world!\n");
 }
