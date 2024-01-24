@@ -38,8 +38,9 @@ IRC_A = ../libirc.a
 #            SOURCE FILES            #
 ######################################
 SRC = \
-		test1.cpp \
-		test2.cpp \
+		testHelloFunctionStdOut.cpp \
+		testHelloFunctionReturnsNumericValue.cpp \
+		testRegexLibrary.cpp \
 
 #######################################
 #                FLAGS                #
