@@ -32,15 +32,14 @@ GTEST_A = \
 
 GTEST_A := ${addprefix ${GTEST_LIB_DIR}, ${GTEST_A}}
 
-IRC_A = ../libirc.a
+IRC_A = ../libft_irc.a
 
 ######################################
 #            SOURCE FILES            #
 ######################################
 SRC = \
-		testHelloFunctionStdOut.cpp \
-		testHelloFunctionReturnsNumericValue.cpp \
-		testRegexLibrary.cpp \
+		testParserMessage.cpp \
+		testPrefixIsValid.cpp \
 
 #######################################
 #                FLAGS                #
