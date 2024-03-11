@@ -28,7 +28,7 @@ INSTANTIATE_TEST_SUITE_P(
 		// 0
 		PrefixTestData{"", true}, // Empty prefix is valid
 		// 1
-		PrefixTestData{":user@host", false}, // Complexe false case
+		PrefixTestData{":user@host", true}, // Easy true case
 		// 2
 		PrefixTestData{"user@host", false}, // Invalid, missing leading colon
 		// 3
@@ -60,4 +60,14 @@ INSTANTIATE_TEST_SUITE_P(
 		// 16
 		PrefixTestData{":nick!user@host", true}, // Complexe true case
 		// 17
-		PrefixTestData{":Nick!user@host", true}));
+		PrefixTestData{":Nick!user@host", true},
+		// 18
+		PrefixTestData{"example-server.com", false},
+		// 19
+		PrefixTestData{":example-server.com", true},
+		// 20
+		PrefixTestData{"@User!Host", false}, // Invalid, missing nick
+		// 21
+		PrefixTestData{":ToooooLoooooooooongNickname!U$er123@h0st-name.com", false} // Too long nickname
+
+		));
