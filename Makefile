@@ -40,6 +40,7 @@ IRC_A = ../libft_irc.a
 SRC = \
 		testParserMessage.cpp \
 		testPrefixIsValid.cpp \
+		testCapCommand.cpp \
 
 #######################################
 #                FLAGS                #
