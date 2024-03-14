@@ -16,7 +16,7 @@ NAME = unit_tests
 #             DIRECTORIES             #
 #######################################
 OBJ_DIR     =   obj
-SRC_DIR		=	tests
+SRC_DIR		=	srcs
 PRIV_DIR	=	../private/
 GTEST_DIR   =   googletest
 GTEST_BUILD_DIR = ${GTEST_DIR}/build
@@ -40,7 +40,14 @@ IRC_A = ../libft_irc.a
 SRC = \
 		testParserMessage.cpp \
 		testPrefixIsValid.cpp \
-		testCapCommand.cpp \
+		testPassword.cpp \
+		testUsername.cpp \
+		testUserModeMask.cpp \
+		testTopic.cpp \
+		testNickName.cpp \
+		testKey.cpp \
+		testHostname.cpp \
+
 
 #######################################
 #                FLAGS                #
